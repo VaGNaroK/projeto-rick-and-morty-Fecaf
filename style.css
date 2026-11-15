@@ -1,0 +1,204 @@
+:root {
+  --bg-dark: #0b0f19;
+  --bg-card: #161f30;
+  --portal-green: #97ce4c;
+  --portal-cyan: #00b5cc;
+  --text-light: #f1f5f9;
+  --text-muted: #94a3b8;
+  --status-alive: #22c55e;
+  --status-dead: #ef4444;
+  --status-unknown: #eab308;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cabeçalho */
+.header {
+  background: radial-gradient(circle at top, #1e293b 0%, #0b0f19 100%);
+  border-bottom: 2px solid var(--portal-green);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(151, 206, 76, 0.15);
+}
+
+.header h1 {
+  font-size: 2.6rem;
+  color: var(--portal-cyan);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(0, 181, 204, 0.5);
+}
+
+.header h1 span {
+  color: var(--portal-green);
+  margin-left: 8px;
+}
+
+.header p {
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  font-size: 1.05rem;
+}
+
+/* Barra de Busca e Filtro */
+.search-bar {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-bar input,
+.search-bar select {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background-color: #1e293b;
+  color: var(--text-light);
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.search-bar input {
+  flex: 1;
+  min-width: 240px;
+}
+
+.search-bar input:focus,
+.search-bar select:focus {
+  border-color: var(--portal-green);
+}
+
+.search-bar button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--portal-green);
+  color: #0b0f19;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.search-bar button:hover {
+  background-color: #84b83b;
+  transform: translateY(-2px);
+}
+
+/* Container Principal e Grid para os Cards */
+.main-container {
+  flex: 1;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.status-message {
+  text-align: center;
+  color: var(--portal-green);
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.75rem;
+}
+
+/* Estilo do Card Gerado Dinamicamente como pede no trabalho */
+.character-card {
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #26334d;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.character-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--portal-green);
+  box-shadow: 0 10px 25px rgba(151, 206, 76, 0.2);
+}
+
+.character-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-bottom: 2px solid #26334d;
+}
+
+.card-info {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.character-name {
+  font-size: 1.3rem;
+  color: var(--portal-cyan);
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-alive { background-color: var(--status-alive); box-shadow: 0 0 8px var(--status-alive); }
+.status-dead { background-color: var(--status-dead); }
+.status-unknown { background-color: var(--status-unknown); }
+
+.character-detail {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.character-detail strong {
+  color: var(--text-light);
+}
+
+/* Rodapé */
+.footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #070a12;
+  border-top: 1px solid #1e293b;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.footer a {
+  color: var(--portal-green);
+  text-decoration: none;
+}
